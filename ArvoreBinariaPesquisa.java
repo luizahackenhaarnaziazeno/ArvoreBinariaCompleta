@@ -9,26 +9,32 @@ public class ArvoreBinariaPesquisa {
         }
 
     }
-    /*adicionar(int chave)
-• boolean estaVazia()
-• int obterTamanho()
-• void limpar()
+    /*
+• int obterTamanho()-confirmar se tá ok
+fazer:
 • int obterEsquerda(int item)
 • int obterDireita(int item)
-• int obterPai(int item)
+• boolean existe(int item)
+• void remover(int item)
+• int qtdNosNaoFolha() //retorna a quantidade de nodos não folha
+• int qtdNodosFolha() //quantidade de nodos folha
+
+
+//temos em alguma aula do git
 • String elementosPreOrdem()
 • String elementosCentralOrdem()
 • String elementosPosOrdem()
 • String elementosLargura()
-• int obterNivel(int item)
-• boolean existe(int item)
-• int altura()
-• boolean ehInterno(int item)
+boolean ehInterno(int item)
 • boolean ehExterno(int item)
-• void remover(int item)
-• int qtdNosNaoFolha() //retorna a quantidade de nodos não folha
-• int qtdNodosFolha() //quantidade de nodos folha
-• int obterMaiorValor() //retorna a maior chave da árvore
+
+
+
+
+//tem no nosso t2
+• int altura()
+• int obterNivel(int item)-acho
+
 • int obterMenorValor() //retorna a menor chave da árvore
 • int qtdPares() //retorna a quantidade de chaves que são pares
 • int qtdImpares() //retorna a quantidade de chaves são impares
@@ -38,7 +44,9 @@ public class ArvoreBinariaPesquisa {
 • remover(String lista) //método para remover todas as chaves contidas em lista. Esse parâmetro é um string que
 deve enviar as chaves a serem removidas separadas por vírgula. Exemplo: “34, 99, 12”. Remove 34, 99, 12
 • gerarArvoreAleatoria(int n) //método que limpa a árvore atual e adiciona n chaves não repetidas na árvore
+
  */
+
     private class Nodo {
         private int chave;
         private Nodo esquerda;
@@ -136,11 +144,11 @@ deve enviar as chaves a serem removidas separadas por vírgula. Exemplo: “34, 
         if(!estaVazia()) return raiz.chave;
         return -1;
     }
-    public int obterPai(int chave) {
+    public int obterPai(int item) {
         if(estaVazia()) return -1;
-        if(chave==raiz.chave) return -1;
-        Nodo aux = obterNodoRecursivo(chave, raiz);
-        return aux.pai.chave;
+        if(item==raiz.item) return -1;
+        Nodo aux = obterNodoRecursivo(item, raiz);
+        return aux.pai.item;
     }
     public String percorrerPreOrdem() {
         ResultadosBuscaProfundidade r = new ResultadosBuscaProfundidade();
@@ -183,6 +191,8 @@ deve enviar as chaves a serem removidas separadas por vírgula. Exemplo: “34, 
         maiorValorRecursivo(raiz, maior);
         return maior[0];
     }
+
+    //• int obterMaiorValor() //retorna a maior chave da árvore
     private void maiorValorRecursivo(Nodo n, int[] maior) {
         if(n==null) return;
         if(n.chave>maior[0]) maior[0] = n.chave;
@@ -202,17 +212,7 @@ deve enviar as chaves a serem removidas separadas por vírgula. Exemplo: “34, 
         int direitaMax = maiorValorRecursivo_gpt(n.direita);
         return Math.max(n.chave, Math.max(esquerdaMax, direitaMax));
     }
-    /*
-    3. Escreva um método que conta o número de nós não-folha (internos, galhos) de uma
-       árvore binária
-     */
-
-
-    /*
-    *
-     4. Escreva um método que conta o número de nodos de uma árvore binária, que tem
-        apenas o filho da direita.
-    * */
+    
     public int contarFilhosDaDireita() {
         return 0;
     }
