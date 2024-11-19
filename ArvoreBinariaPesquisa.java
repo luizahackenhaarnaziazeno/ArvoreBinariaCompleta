@@ -32,7 +32,6 @@ deve enviar as chaves a serem removidas separadas por vírgula. Exemplo: “34, 
 
 
 //temos em alguma aula do git
-
 • String elementosCentralOrdem()
 • String elementosPosOrdem()
 • String elementosLargura()
