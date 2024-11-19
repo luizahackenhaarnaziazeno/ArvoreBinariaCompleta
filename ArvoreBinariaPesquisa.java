@@ -10,7 +10,6 @@ public class ArvoreBinariaPesquisa {
 
     }
     /*
-• int obterTamanho()-confirmar se tá ok
 fazer:
 • int obterEsquerda(int item)
 • int obterDireita(int item)
@@ -18,23 +17,8 @@ fazer:
 • void remover(int item)
 • int qtdNosNaoFolha() //retorna a quantidade de nodos não folha
 • int qtdNodosFolha() //quantidade de nodos folha
-
-
-//temos em alguma aula do git
-• String elementosPreOrdem()
-• String elementosCentralOrdem()
-• String elementosPosOrdem()
-• String elementosLargura()
-boolean ehInterno(int item)
-• boolean ehExterno(int item)
-
-
-
-
-//tem no nosso t2
-• int altura()
+int altura()-utilizar obter nivel
 • int obterNivel(int item)-acho
-
 • int obterMenorValor() //retorna a menor chave da árvore
 • int qtdPares() //retorna a quantidade de chaves que são pares
 • int qtdImpares() //retorna a quantidade de chaves são impares
@@ -44,6 +28,16 @@ boolean ehInterno(int item)
 • remover(String lista) //método para remover todas as chaves contidas em lista. Esse parâmetro é um string que
 deve enviar as chaves a serem removidas separadas por vírgula. Exemplo: “34, 99, 12”. Remove 34, 99, 12
 • gerarArvoreAleatoria(int n) //método que limpa a árvore atual e adiciona n chaves não repetidas na árvore
+
+
+
+//temos em alguma aula do git
+
+• String elementosCentralOrdem()
+• String elementosPosOrdem()
+• String elementosLargura()
+boolean ehInterno(int item)
+• boolean ehExterno(int item)
 
  */
 
@@ -131,7 +125,7 @@ deve enviar as chaves a serem removidas separadas por vírgula. Exemplo: “34, 
         if(aux.esquerda!=null) percorrerRecursivamente(aux.esquerda, resultado);
         if(aux.direita!=null) percorrerRecursivamente(aux.direita, resultado);
     }
-    //IMPLEMENTAR NA AULA DO DIA 04/11
+    //Ver se tá funcionado
     public int obterTamanho() {
         ResultadosBuscaProfundidade r = new ResultadosBuscaProfundidade();
         percorrerRecursivamente(raiz, r);
@@ -216,5 +210,7 @@ deve enviar as chaves a serem removidas separadas por vírgula. Exemplo: “34, 
     public int contarFilhosDaDireita() {
         return 0;
     }
+
+ 
 
 }
