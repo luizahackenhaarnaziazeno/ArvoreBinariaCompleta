@@ -11,10 +11,15 @@ public class ArvoreBinariaPesquisa {
     }
     /*
 fazer:
+arrumar o método remover para ele tirar o nodo quando ele tiver na arvore 
 • int obterEsquerda(int item)
 • int obterDireita(int item)
 • boolean existe(int item)
-• void remover(int item)
+• String elementosCentralOrdem()
+• String elementosPosOrdem()
+• String elementosLargura()
+boolean ehInterno(int item)
+• boolean ehExterno(int item)
 • int qtdNosNaoFolha() //retorna a quantidade de nodos não folha
 • int qtdNodosFolha() //quantidade de nodos folha
 int altura()-utilizar obter nivel
@@ -31,28 +36,22 @@ deve enviar as chaves a serem removidas separadas por vírgula. Exemplo: “34, 
 
 
 
-//temos em alguma aula do git
-• String elementosCentralOrdem()
-• String elementosPosOrdem()
-• String elementosLargura()
-boolean ehInterno(int item)
-• boolean ehExterno(int item)
 
  */
 
     private class Nodo {
-        private int chave;
+        private int item;
         private Nodo esquerda;
         private Nodo direita;
         private Nodo pai;
-        public Nodo(int chave) {
-            this.chave = chave;
+        public Nodo(int item) {
+            this.item = item;
         }
     }
     private Nodo raiz;
     public ArvoreBinariaPesquisa() {};
-    public void adicionar(int chave) {
-        Nodo n = new Nodo(chave);
+    public void adicionar(int item) {
+        Nodo n = new Nodo(item);
         if(estaVazia()) {
             raiz = n;
         }
@@ -61,7 +60,7 @@ boolean ehInterno(int item)
         }
     }
     private void adicionarRecursivo(Nodo n, Nodo pai) {
-        if(n.chave>pai.chave) {
+        if(n.item>pai.item) {
             if(pai.direita==null) {
                 pai.direita = n;
                 n.pai = pai;
@@ -77,27 +76,36 @@ boolean ehInterno(int item)
             else adicionarRecursivo(n, pai.esquerda);
         }
     }
-    public boolean remover(int chave) {
-        //retorna TRUE se removeu ou FALSE se nao removeu (nao existia a chave)
-        Nodo n = obterNodoRecursivo(chave, raiz);
-        if(n==null) return false;
+
+
+    public void remover(int item) {
+     
+        Nodo n = obterNodoRecursivo(item, raiz);
+        if(n==null) {
+        System.out.println(" não foi possivel remover o"+ item);
+        }else{
         if(numeroFilhos(n)==0) {
             if(n.pai.esquerda==n) n.pai.esquerda = null;
             else n.pai.direita = null;
         }
-        return true;
+        System.out.println(item + " removido com sucesso");
+        }
     }
+
+
+
+
     private int numeroFilhos(Nodo n) {
         if(n==null) return -1;
         if(n.esquerda==null && n.direita==null) return 0;
         if(n.esquerda!=null && n.direita!=null) return 2;
         return 1;
     }
-    private Nodo obterNodoRecursivo(int chave, Nodo n) {
+    private Nodo obterNodoRecursivo(int item, Nodo n) {
         if(n==null) return null;
-        if(chave==n.chave) return n;
-        if(chave>n.chave) return obterNodoRecursivo(chave, n.direita);
-        if(chave<n.chave) return obterNodoRecursivo(chave, n.esquerda);
+        if(item==n.item) return n;
+        if(item>n.item) return obterNodoRecursivo(item, n.direita);
+        if(item<n.item) return obterNodoRecursivo(item, n.esquerda);
         return null;
     }
     public void imprimirArvore() {
@@ -109,7 +117,7 @@ boolean ehInterno(int item)
         imprimirArvoreRecusivamente(raiz.direita, nivel);
         System.out.print("\n");
         for (int i = 5; i < nivel; i++) System.out.print(" ");
-        System.out.print(raiz.chave + "\n");
+        System.out.print(raiz.item + "\n");
         for (int i = 5; i < nivel; i++) System.out.print(" ");
         imprimirArvoreRecusivamente(raiz.esquerda, nivel);
     }
@@ -120,7 +128,7 @@ boolean ehInterno(int item)
     private void percorrerRecursivamente(Nodo aux, ResultadosBuscaProfundidade resultado) {
         if(aux==null) return;
         resultado.tamanho++;
-        resultado.preordem = resultado.preordem + " " + aux.chave;
+        resultado.preordem = resultado.preordem + " " + aux.item;
         if(aux.esquerda!=null) percorrerRecursivamente(aux.esquerda, resultado);
         if(aux.direita!=null) percorrerRecursivamente(aux.direita, resultado);
     }
@@ -134,7 +142,7 @@ boolean ehInterno(int item)
         raiz = null;
     }
     public int obterRaiz() {
-        if(!estaVazia()) return raiz.chave;
+        if(!estaVazia()) return raiz.item;
         return -1;
     }
     public int obterPai(int item) {
@@ -158,16 +166,16 @@ boolean ehInterno(int item)
     public String percorrerLargura() {
         return null;
     }
-    public int obterNivel(int chave) {
+    public int obterNivel(int item) {
         return 0;
     }
-    public int obterAltura(int chave) {
+    public int obterAltura(int item) {
         return 0;
     }
-    public boolean ehInterno(int chave) {
+    public boolean ehInterno(int item) {
         return false;
     }
-    public boolean ehExterno(int chave) {
+    public boolean ehExterno(int item) {
         return false;
     }
 
@@ -188,7 +196,7 @@ boolean ehInterno(int item)
     //• int obterMaiorValor() //retorna a maior chave da árvore
     private void maiorValorRecursivo(Nodo n, int[] maior) {
         if(n==null) return;
-        if(n.chave>maior[0]) maior[0] = n.chave;
+        if(n.item>maior[0]) maior[0] = n.item;
         maiorValorRecursivo(n.esquerda, maior);
         maiorValorRecursivo(n.direita, maior);
     }
@@ -203,7 +211,7 @@ boolean ehInterno(int item)
         }
         int esquerdaMax = maiorValorRecursivo_gpt(n.esquerda);
         int direitaMax = maiorValorRecursivo_gpt(n.direita);
-        return Math.max(n.chave, Math.max(esquerdaMax, direitaMax));
+        return Math.max(n.item, Math.max(esquerdaMax, direitaMax));
     }
     
     public int contarFilhosDaDireita() {

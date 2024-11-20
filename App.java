@@ -17,7 +17,15 @@ public class App {
         System.out.println("");
         abp.imprimirArvore();
 
-        System.out.println("");
+        System.out.println("Removendo 21"); 
+        abp.remover(21);
+        abp.imprimirArvore();
+
+        System.out.println("Removendo 20");
+        abp.remover(20);
+        abp.imprimirArvore();
+
+        /*System.out.println("");
         System.out.println("Raiz = " + abp.obterRaiz());
         int c1 = 53;
         System.out.println("Pai do " + c1 + " = " + abp.obterPai(53));
@@ -30,5 +38,6 @@ public class App {
         System.out.println(abp.contarNodos());
         System.out.println(abp.maiorValor());
         System.out.println(abp.maiorValor_gpt());
+        */
     }
 }
