@@ -37,21 +37,6 @@ public class ArvoreBinariaPesquisa {
     public ArvoreBinariaPesquisa() {
     };
 
-    /*
-     * • void mergear(ArvoreBinariaPesquisa t) //esse método deve inserir todas as
-     * chaves da árvore t na árvore atual
-     * (a do objeto que está disparando esse método)
-     * • adicionar(String lista) //método para adicionar todas as chaves contidas em
-     * lista
-     * • remover(String lista) //método para remover todas as chaves contidas em
-     * lista. Esse parâmetro é um string que
-     * deve enviar as chaves a serem removidas separadas por vírgula. Exemplo: “34,
-     * 99, 12”. Remove 34, 99, 12
-     * • gerarArvoreAleatoria(int n) //método que limpa a árvore atual e adiciona n
-     * chaves não repetidas na árvore
-     */
-
-    // Métodos que estão funcionando
 
     public void adicionar(int item) {
         Nodo n = new Nodo(item);

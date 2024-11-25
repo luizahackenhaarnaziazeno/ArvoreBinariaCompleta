@@ -41,8 +41,9 @@ public class App {
             System.out.println("22 - Remover 2:");
             System.out.println("23 - Adicionar e depois remover uma lista de elementos {1, 7, 16, 22} :");
             System.out.println("24 - Gerar duas arvores aleatórias e depois mergear:");
-            System.out.println("25 - Limpar a árvore: ");
-            System.out.println("26 - Sair:");
+            System.out.println("25 - Obter a raiz da árvore: ");
+            System.out.println("26 - Limpar a árvore: ");
+            System.out.println("27 - Sair:");
             System.out.print("Escolha uma opção: ");
             int opcao = scanner.nextInt();
             scanner.nextLine();
@@ -225,13 +226,21 @@ public class App {
                     abp.imprimirArvore();
                     break;
                 case 25:
+                    abp.imprimirArvore();
+                    System.out.println("Obter a raiz da árvore");
+                    System.out.println(abp.obterRaiz());
+                    System.out.println("");
+                    System.out.println("");
+                    break;
+                case 26:
+                    abp.imprimirArvore();
                     System.out.println("Limpando a árvore");
                     abp.limpar();
                     abp.imprimirArvore();
                     System.out.println("");
                     System.out.println("");
                     break;
-                case 26:
+                case 27:
                     System.out.println("Saindo...");
                     continuar = false;
                     break;
@@ -240,10 +249,6 @@ public class App {
             }
         }
         scanner.close();
-        /*
-         * System.out.println("");
-         * System.out.println("Raiz = " + abp.obterRaiz());
-         */
 
     }
 }
