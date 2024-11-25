@@ -1,5 +1,7 @@
 import java.util.List;
 import java.util.Random;
+import java.util.Queue;
+import java.util.LinkedList;
 
 public class ArvoreBinariaPesquisa {
     private class ResultadosBuscaProfundidade {
@@ -36,7 +38,6 @@ public class ArvoreBinariaPesquisa {
     };
 
     /*
-    *Caminhamento em largura
      * • void mergear(ArvoreBinariaPesquisa t) //esse método deve inserir todas as
      * chaves da árvore t na árvore atual
      * (a do objeto que está disparando esse método)
@@ -185,20 +186,32 @@ public class ArvoreBinariaPesquisa {
         return r.posordem;
     }
 
-    private void percorrerRecursivamenteEmLargura(Nodo aux, ResultadosBuscaProfundidade resultado) {
-        if (aux == null)
+    
+    private void percorrerPorNiveis(Nodo raiz, ResultadosBuscaProfundidade resultado) {
+        if (raiz == null) {
             return;
-        resultado.tamanho++;
-        resultado.largura = resultado.largura + " " + aux.item;
-        percorrerRecursivamenteEmLargura(aux.esquerda, resultado);
-        percorrerRecursivamenteEmLargura(aux.direita, resultado);
+        }
+
+        Queue<Nodo> fila = new LinkedList<>();
+        fila.add(raiz);
+
+        while (!fila.isEmpty()) {
+            Nodo atual = fila.poll();
+            resultado.largura = resultado.largura + " " + atual.item;
+
+            if (atual.esquerda != null) {
+                fila.add(atual.esquerda);
+            }
+
+            if (atual.direita != null) {
+                fila.add(atual.direita);
+            }
+        }
     }
 
-    // String elementosLargura()
-    // nao esta ok
     public String elementosLargura() {
         ResultadosBuscaProfundidade r = new ResultadosBuscaProfundidade();
-        percorrerRecursivamenteEmLargura(raiz, r);
+        percorrerPorNiveis(raiz, r);
         return r.largura;
     }
 
