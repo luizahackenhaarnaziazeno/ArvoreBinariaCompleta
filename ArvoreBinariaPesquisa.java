@@ -1,3 +1,5 @@
+import java.util.List;
+import java.util.Random;
 
 public class ArvoreBinariaPesquisa {
     private class ResultadosBuscaProfundidade {
@@ -56,6 +58,12 @@ public class ArvoreBinariaPesquisa {
             raiz = n;
         } else {
             adicionarRecursivo(n, raiz);
+        }
+    }
+
+    public void adicionar(List<Integer> lista) {
+        for (Integer item : lista) {
+            adicionar(item);
         }
     }
 
@@ -274,11 +282,15 @@ public class ArvoreBinariaPesquisa {
         }
     }
 
+    public void remover(List<Integer> lista) {
+        for (Integer item : lista) {
+            remover(item);
+        }
+    }
  
-      public int qtdNosNaoFolha() {
+    public int qtdNosNaoFolha() {
       return contarNodos()-qtdNodosFolha();
       }
- 
       public int contarNodos() {
         return contarNodosRecursivo(raiz);
     }
@@ -382,4 +394,28 @@ public class ArvoreBinariaPesquisa {
         return -1;
     }
 
+    public void gerarArvoreAleaoria(int qtdNodos) {
+        for (int i = 0; i < qtdNodos; i++) {
+            int num = new Random().nextInt(0, 100);
+            adicionar(num);
+        }
+    }
+
+    public void mergear(ArvoreBinariaPesquisa t) {
+        if (t == null || t.raiz == null) {
+            return;
+        }
+
+        mergearNodos(t.raiz);
+    }
+
+    private void mergearNodos(Nodo nodo) {
+        if (nodo == null) {
+            return;
+        }
+
+        mergearNodos(nodo.esquerda);
+        adicionar(nodo.item);
+        mergearNodos(nodo.direita);
+    }
 }

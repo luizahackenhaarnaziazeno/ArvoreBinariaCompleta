@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class App {
@@ -38,8 +39,10 @@ public class App {
             System.out.println("20 - A quantidades de números pares na árvore:");
             System.out.println("21 - A quantidades de números ímpares na árvore:");
             System.out.println("22 - Remover 2:");
-            System.out.println("23 - Limpar a árvore:");
-            System.out.println("24 - Sair:");
+            System.out.println("23 - Adicionar e depois remover uma lista de elementos {1, 7, 16, 22} :");
+            System.out.println("24 - Gerar duas arvores aleatórias e depois mergear:");
+            System.out.println("25 - Limpar a árvore: ");
+            System.out.println("26 - Sair:");
             System.out.print("Escolha uma opção: ");
             int opcao = scanner.nextInt();
             scanner.nextLine();
@@ -196,13 +199,39 @@ public class App {
                     System.out.println("");
                     break;
                 case 23:
+                    System.out.println("Adicionar e depois remover uma lista de elementos: {1, 7, 16, 22}");
+                    ArrayList<Integer> itens = new ArrayList<>();
+                    itens.add(1);
+                    itens.add(7);
+                    itens.add(16);
+                    itens.add(22);
+                    abp.adicionar(itens);
+                    abp.imprimirArvore();
+                    System.out.println("\n=========================\n");
+                    abp.remover(itens);
+                    abp.imprimirArvore();
+                    break;
+                case 24:
+                    System.out.println("Gerar duas arvores aleatórias e depois mergear");
+                    abp.limpar();
+                    abp.gerarArvoreAleaoria(5);
+                    abp.imprimirArvore();
+                    System.out.println("\n=========================\n");
+                    ArvoreBinariaPesquisa outraAbp = new ArvoreBinariaPesquisa();
+                    outraAbp.gerarArvoreAleaoria(5);
+                    outraAbp.imprimirArvore();
+                    System.out.println("\n=========================\n");
+                    abp.mergear(outraAbp);
+                    abp.imprimirArvore();
+                    break;
+                case 25:
                     System.out.println("Limpando a árvore");
                     abp.limpar();
                     abp.imprimirArvore();
                     System.out.println("");
                     System.out.println("");
                     break;
-                case 24:
+                case 26:
                     System.out.println("Saindo...");
                     continuar = false;
                     break;
