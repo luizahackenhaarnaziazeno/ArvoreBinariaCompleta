@@ -201,9 +201,9 @@ public class App {
                 case 23:
                     System.out.println("Adicionar e depois remover uma lista de elementos: {1, 7, 16, 22}");
                     ArrayList<Integer> itens = new ArrayList<>();
-                    itens.add(1);
+                    itens.add(2);
                     itens.add(7);
-                    itens.add(16);
+                    itens.add(15);
                     itens.add(22);
                     abp.adicionar(itens);
                     abp.imprimirArvore();

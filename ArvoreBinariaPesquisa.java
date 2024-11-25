@@ -64,7 +64,7 @@ public class ArvoreBinariaPesquisa {
 
     public void adicionar(List<Integer> lista) {
         for (Integer item : lista) {
-            adicionar(item);
+            if (!existe(item)) adicionar(item);
         }
     }
 
@@ -297,7 +297,7 @@ public class ArvoreBinariaPesquisa {
 
     public void remover(List<Integer> lista) {
         for (Integer item : lista) {
-            remover(item);
+            if (existe(item)) remover(item);
         }
     }
  
@@ -428,7 +428,7 @@ public class ArvoreBinariaPesquisa {
         }
 
         mergearNodos(nodo.esquerda);
-        adicionar(nodo.item);
+        if (!existe(nodo.item)) adicionar(nodo.item);
         mergearNodos(nodo.direita);
     }
 }
