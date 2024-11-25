@@ -3,6 +3,8 @@ import java.util.Random;
 import java.util.Queue;
 import java.util.LinkedList;
 
+//Luiza Hackenhaar Naziazeno e Ricardo Soares Ribeiro
+
 public class ArvoreBinariaPesquisa {
     private class ResultadosBuscaProfundidade {
         public int tamanho;

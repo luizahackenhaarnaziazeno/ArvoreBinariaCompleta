@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+//Luiza Hackenhaar Naziazeno e Ricardo Soares Ribeiro
+
 public class App {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
