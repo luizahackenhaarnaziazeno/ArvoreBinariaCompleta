@@ -51,3 +51,8 @@ O programa realiza os seguintes funções:
 
 ## GerarArvoreAleatoria
 - `gerarArvoreAleatoria(int n)` //método que limpa a árvore atual e adiciona n chaves não repetidas na árvore
+
+  # Autores:
+| [<img loading="lazy" src="https://avatars.githubusercontent.com/u/142232479?v=4" width=115><br><sub>Luiza Hackenhaar Naziazeno</sub>](https://github.com/luizahackenhaarnaziazeno) | [<img loading="lazy" src="https://avatars.githubusercontent.com/u/71355284?v=4" width=115><br><sub>Ricardo Soares</sub>](https://github.com/ric-soares) |
+| :---: | :---: |
+
